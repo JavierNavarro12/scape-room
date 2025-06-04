@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
 .App {
   text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #181c24 0%, #232946 100%);
+  color: #f7fafc;
+  padding: 20px;
+  font-family: 'Orbitron', Arial, sans-serif;
 }
 
 .App-logo {
@@ -35,4 +42,262 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.welcome-screen, .victory-screen {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-screen h1, .victory-screen h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #48bb78;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-screen p, .victory-screen p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #e2e8f0;
+}
+
+button {
+  background: #48bb78;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: #38a169;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-screen, .victory-screen {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .welcome-screen, .victory-screen {
+    margin: 50px 20px;
+    padding: 20px;
+  }
+
+  .welcome-screen h1, .victory-screen h1 {
+    font-size: 2em;
+  }
+
+  .welcome-screen p, .victory-screen p {
+    font-size: 1em;
+  }
+}
+
+.welcome-screen {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 48px 36px 44px 36px;
+  background: rgba(30, 34, 44, 0.92);
+  border-radius: 28px;
+  box-shadow: 0 8px 48px #00ffe733, 0 1.5px 8px #0008;
+  border: 2.5px solid #00ffe7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.welcome-screen h1 {
+  font-size: 2.5em;
+  margin-bottom: 38px;
+  color: #00ffe7;
+  text-shadow: 0 0 8px #00ffe7, 0 0 24px #00ffe7, 0 0 48px #00ffe7;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Orbitron', Arial, sans-serif;
+  animation: neonGlow 2.2s infinite alternate;
+}
+
+@keyframes neonGlow {
+  0%, 100% { text-shadow: 0 0 8px #00ffe7, 0 0 24px #00ffe7, 0 0 48px #00ffe7; }
+  50% { text-shadow: 0 0 16px #00ffe7, 0 0 32px #00ffe7, 0 0 64px #00ffe7; }
+}
+
+/* Panel de galería virtual */
+.gallery-panel {
+  background: rgba(10, 12, 18, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #00ffe733, 0 1.5px 8px #0008;
+  border: 2px solid #00ffe7;
+  padding: 32px 18px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 340px;
+  min-height: 220px;
+  max-width: 90vw;
+  transition: box-shadow 0.2s;
+}
+
+.welcome-screen p {
+  display: none;
+}
+
+/* Botón de la galería (si lo hubiera) */
+.welcome-screen button {
+  margin-top: 36px;
+  font-size: 1.3em;
+  padding: 18px 48px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #00ffe7 0%, #00bfff 100%);
+  color: #181c24;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 32px #00ffe7aa, 0 2px 8px #0008;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  display: block;
+  font-family: 'Orbitron', Arial, sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px #fff, 0 0 16px #00ffe7;
+}
+.welcome-screen button:hover {
+  background: linear-gradient(90deg, #00bfff 0%, #00ffe7 100%);
+  color: #fff;
+  transform: scale(1.06);
+  box-shadow: 0 6px 40px #00ffe7cc, 0 2px 8px #0008;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .welcome-screen {
+    margin: 50px 10px;
+    padding: 20px 4vw 20px 4vw;
+  }
+  .welcome-screen h1 {
+    font-size: 1.5em;
+  }
+  .gallery-panel {
+    min-width: 90vw;
+    padding: 16px 2vw;
+  }
+}
+
+.gallery-panel-message {
+  font-family: 'Orbitron', Arial, sans-serif;
+  color: #00ffe7;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 8px #00ffe7, 0 0 24px #00ffe7, 0 0 48px #00ffe7;
+  background: rgba(10, 12, 18, 0.92);
+  border-radius: 16px;
+  border: 2px solid #00ffe7;
+  box-shadow: 0 4px 32px #00ffe733, 0 1.5px 8px #0008;
+  padding: 32px 24px;
+  margin: 0 auto;
+  max-width: 90vw;
+  min-width: 320px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s;
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0;
+  }
+  .welcome-screen {
+    max-width: 80vw;
+    min-width: 260px;
+    margin: 0 auto;
+    padding: 18px 4vw 18px 4vw;
+    border-radius: 18px;
+  }
+  .welcome-screen h1 {
+    font-size: 1.35em;
+    margin-bottom: 18px;
+  }
+  .welcome-screen button {
+    font-size: 1.15em;
+    padding: 12px 8vw;
+    margin-top: 18px;
+    border-radius: 12px;
+  }
+}
+
+.level-menu-panel {
+  /* Hereda todo de .welcome-screen, solo personaliza si es necesario */
+}
+.level-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  align-items: center;
+  margin-top: 24px;
+}
+.level-btn {
+  font-size: 1.3em;
+  padding: 18px 48px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #00ffe7 0%, #00bfff 100%);
+  color: #181c24;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 32px #00ffe7aa, 0 2px 8px #0008;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  display: block;
+  font-family: 'Orbitron', Arial, sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px #fff, 0 0 16px #00ffe7;
+  width: 100%;
+  max-width: 340px;
+}
+.level-btn:hover {
+  background: linear-gradient(90deg, #00bfff 0%, #00ffe7 100%);
+  color: #fff;
+  transform: scale(1.06);
+  box-shadow: 0 6px 40px #00ffe7cc, 0 2px 8px #0008;
 }
