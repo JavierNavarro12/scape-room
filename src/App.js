@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cssPuzzles } from './data/cssPuzzles';
 import { htmlPuzzles } from './data/htmlPuzzles';
 import { jsPuzzles } from './data/jsPuzzles';
@@ -33,12 +33,29 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [selectedLevel, setSelectedLevel] = useState(null); // 'BASICO', 'NORMAL', 'DIFICIL', 'PRO'
   const [showLevelMenu, setShowLevelMenu] = useState(false);
+  const [showRotateOverlay, setShowRotateOverlay] = useState(false);
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 3000);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Overlay de orientación global
+  useEffect(() => {
+    function checkOrientation() {
+      const isMobile = window.innerWidth <= 900 && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isPortrait = window.innerHeight > window.innerWidth;
+      setShowRotateOverlay(isMobile && isPortrait);
+    }
+    checkOrientation();
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', checkOrientation);
+    return () => {
+      window.removeEventListener('resize', checkOrientation);
+      window.removeEventListener('orientationchange', checkOrientation);
+    };
   }, []);
 
   const handleRoomSelect = (roomName) => {
@@ -115,6 +132,39 @@ function App() {
 
   return (
     <div className="App">
+      {showRotateOverlay && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(24,28,36,0.98)',
+          zIndex: 99999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+        }}>
+          <div style={{
+            color: '#00ffe7',
+            fontSize: '2em',
+            fontWeight: 900,
+            textAlign: 'center',
+            textShadow: '0 0 16px #00ffe7, 0 0 32px #00ffe7',
+            marginBottom: '24px',
+            fontFamily: 'Orbitron, Arial, sans-serif',
+          }}>
+            Por favor, gira tu dispositivo<br />para jugar en horizontal
+          </div>
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="60" height="30" rx="8" fill="#00ffe7" fillOpacity="0.13" stroke="#00ffe7" strokeWidth="3"/>
+            <rect x="20" y="35" width="40" height="20" rx="5" fill="#00ffe7" fillOpacity="0.18" />
+            <path d="M60 60 Q70 40 60 20" stroke="#00ffe7" strokeWidth="3" fill="none"/>
+            <polygon points="62,18 68,22 60,24" fill="#00ffe7" />
+          </svg>
+        </div>
+      )}
       {showConfetti && (
         <Confetti
           width={window.innerWidth}

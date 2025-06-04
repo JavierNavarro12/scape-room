@@ -150,6 +150,18 @@ const Puzzle3 = ({ room, onComplete, level }) => {
           padding: 20px;
           max-width: 800px;
           margin: 0 auto;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        @media (max-width: 900px) and (orientation: landscape) {
+          .puzzle-container {
+            width: 95vw;
+            max-width: 600px;
+            min-width: 260px;
+            padding: 16px 2vw;
+            border-radius: 18px;
+            margin: 0 auto;
+          }
         }
         .question-container {
           background: #ffffff;

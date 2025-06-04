@@ -89,29 +89,12 @@ function RoomSelector3D({
   const [hovered, setHovered] = useState(null);
   const canvasRef = useRef();
   const [showWelcome, setShowWelcome] = useState(false);
-  const [showRotateOverlay, setShowRotateOverlay] = useState(false);
   const welcomeShownRef = useRef(false);
 
   // Sincroniza el modo externo
   React.useEffect(() => {
     if (externalMode) setMode(externalMode);
   }, [externalMode]);
-
-  // Detectar orientación en móvil
-  useEffect(() => {
-    function checkOrientation() {
-      const isMobile = window.innerWidth <= 900 && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      const isPortrait = window.innerHeight > window.innerWidth;
-      setShowRotateOverlay(isMobile && isPortrait);
-    }
-    checkOrientation();
-    window.addEventListener('resize', checkOrientation);
-    window.addEventListener('orientationchange', checkOrientation);
-    return () => {
-      window.removeEventListener('resize', checkOrientation);
-      window.removeEventListener('orientationchange', checkOrientation);
-    };
-  }, []);
 
   // Mostrar bocadillo de bienvenida SOLO la primera vez que se entra en la galería 3D
   useEffect(() => {
@@ -506,40 +489,6 @@ function RoomSelector3D({
               Siguiente
             </button>
           </div>
-        </div>
-      )}
-      {/* Overlay para forzar landscape en móvil */}
-      {showRotateOverlay && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          background: 'rgba(24,28,36,0.98)',
-          zIndex: 9999,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-        }}>
-          <div style={{
-            color: '#00ffe7',
-            fontSize: '2em',
-            fontWeight: 900,
-            textAlign: 'center',
-            textShadow: '0 0 16px #00ffe7, 0 0 32px #00ffe7',
-            marginBottom: '24px',
-            fontFamily: 'Orbitron, Arial, sans-serif',
-          }}>
-            Por favor, gira tu dispositivo<br />para jugar en horizontal
-          </div>
-          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="30" width="60" height="30" rx="8" fill="#00ffe7" fillOpacity="0.13" stroke="#00ffe7" strokeWidth="3"/>
-            <rect x="20" y="35" width="40" height="20" rx="5" fill="#00ffe7" fillOpacity="0.18" />
-            <path d="M60 60 Q70 40 60 20" stroke="#00ffe7" strokeWidth="3" fill="none"/>
-            <polygon points="62,18 68,22 60,24" fill="#00ffe7" />
-          </svg>
         </div>
       )}
       {showEscapeMessage && (

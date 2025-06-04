@@ -3,10 +3,12 @@
 .App {
   text-align: center;
   min-height: 100vh;
+  width: 100vw;
   background: linear-gradient(135deg, #181c24 0%, #232946 100%);
   color: #f7fafc;
   padding: 20px;
   font-family: 'Orbitron', Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -246,22 +248,31 @@ button:active {
     min-height: 100vh;
     padding: 0;
   }
-  .welcome-screen {
-    max-width: 80vw;
+  .welcome-screen, .victory-screen, .level-menu-panel, .gallery-panel, .puzzle-container {
+    width: 95vw;
+    max-width: 600px;
     min-width: 260px;
     margin: 0 auto;
-    padding: 18px 4vw 18px 4vw;
+    padding: 18px 2vw 18px 2vw;
     border-radius: 18px;
+    box-sizing: border-box;
   }
-  .welcome-screen h1 {
+  .welcome-screen h1, .victory-screen h1, .main-title {
     font-size: 1.35em;
     margin-bottom: 18px;
   }
-  .welcome-screen button {
+  .level-btn, .welcome-screen button, .victory-screen button {
     font-size: 1.15em;
     padding: 12px 8vw;
     margin-top: 18px;
     border-radius: 12px;
+  }
+  .gallery-panel {
+    min-width: 90vw;
+    padding: 16px 2vw;
+  }
+  .puzzle-container {
+    padding: 16px 2vw;
   }
 }
 
