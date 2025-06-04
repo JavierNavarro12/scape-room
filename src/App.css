@@ -123,7 +123,7 @@ button:active {
 
 .welcome-screen {
   max-width: 600px;
-  margin: 100px auto;
+  margin: 130px auto;
   padding: 48px 36px 44px 36px;
   background: rgba(30, 34, 44, 0.92);
   border-radius: 28px;
@@ -266,7 +266,7 @@ button:active {
 }
 
 .level-menu-panel {
-  /* Hereda todo de .welcome-screen, solo personaliza si es necesario */
+  max-width: 700px;
 }
 .level-buttons {
   display: flex;
@@ -300,4 +300,8 @@ button:active {
   color: #fff;
   transform: scale(1.06);
   box-shadow: 0 6px 40px #00ffe7cc, 0 2px 8px #0008;
+}
+
+.main-welcome-screen {
+  margin: 250px auto 0 auto;
 }

@@ -33,7 +33,9 @@ const Puzzle4 = ({ room, onComplete, level }) => {
 
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
-    const correct = answer === currentQuestion.correctAnswer;
+    const normalize = str => (str || '').toString().trim().toLowerCase();
+    const correctAnswerValue = currentQuestion.correctAnswer || currentQuestion.answer;
+    const correct = normalize(answer) === normalize(correctAnswerValue);
     setIsCorrect(correct);
     setShowFeedback(true);
 
@@ -46,6 +48,9 @@ const Puzzle4 = ({ room, onComplete, level }) => {
 
   if (!currentQuestion) return null;
 
+  const normalize = str => (str || '').toString().trim().toLowerCase();
+  const correctAnswerValue = currentQuestion.correctAnswer || currentQuestion.answer;
+
   return (
     <div className="puzzle-container">
       <h2>Puzzle 4: Opción Múltiple</h2>
@@ -56,7 +61,7 @@ const Puzzle4 = ({ room, onComplete, level }) => {
             <button
               key={index}
               className={`option-button ${
-                selectedAnswer === option
+                selectedAnswer && normalize(selectedAnswer) === normalize(option)
                   ? isCorrect
                     ? 'correct'
                     : 'incorrect'
@@ -74,7 +79,7 @@ const Puzzle4 = ({ room, onComplete, level }) => {
             <div className={`feedback ${isCorrect ? 'correct' : 'incorrect'}`}>
               {isCorrect
                 ? '¡Correcto! Has completado el puzzle.'
-                : 'Incorrecto. Inténtalo de nuevo.'}
+                : `Incorrecto. La respuesta correcta era: ${correctAnswerValue || 'No disponible'}`}
             </div>
             {!isCorrect && (
               <button className="reset-button" onClick={resetPuzzle}>

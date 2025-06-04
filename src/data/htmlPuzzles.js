@@ -549,156 +549,156 @@ export const htmlPuzzles = {
       {
         id: 1,
         question: "¿Etiqueta para insertar una imagen?",
-        answer: "img"
+        correctAnswer: "img"
       },
       {
         id: 2,
         question: "¿Etiqueta para un enlace?",
-        answer: "a"
+        correctAnswer: "a"
       },
       {
         id: 3,
         question: "¿Etiqueta para un párrafo?",
-        answer: "p"
+        correctAnswer: "p"
       },
       {
         id: 4,
         question: "¿Etiqueta para una lista desordenada?",
-        answer: "ul"
+        correctAnswer: "ul"
       },
       {
         id: 5,
         question: "¿Etiqueta para una lista ordenada?",
-        answer: "ol"
+        correctAnswer: "ol"
       },
       {
         id: 6,
         question: "¿Etiqueta para un encabezado de nivel 1?",
-        answer: "h1"
+        correctAnswer: "h1"
       },
       {
         id: 7,
         question: "¿Etiqueta para un botón?",
-        answer: "button"
+        correctAnswer: "button"
       },
       {
         id: 8,
         question: "¿Etiqueta para un campo de texto?",
-        answer: "input"
+        correctAnswer: "input"
       },
       {
         id: 9,
         question: "¿Etiqueta para una tabla?",
-        answer: "table"
+        correctAnswer: "table"
       },
       {
         id: 10,
         question: "¿Etiqueta para un formulario?",
-        answer: "form"
+        correctAnswer: "form"
       }
     ],
     NORMAL: [
       {
         id: 1,
         question: "¿Atributo para hacer un input obligatorio?",
-        answer: "required"
+        correctAnswer: "required"
       },
       {
         id: 2,
         question: "¿Atributo para vincular un label con un input?",
-        answer: "for"
+        correctAnswer: "for"
       },
       {
         id: 3,
         question: "¿Atributo para especificar el tipo de método en un formulario?",
-        answer: "method"
+        correctAnswer: "method"
       },
       {
         id: 4,
         question: "¿Atributo para especificar el destino de un formulario?",
-        answer: "action"
+        correctAnswer: "action"
       },
       {
         id: 5,
         question: "¿Atributo para hacer un campo de solo lectura?",
-        answer: "readonly"
+        correctAnswer: "readonly"
       },
       {
         id: 6,
         question: "¿Atributo para deshabilitar un elemento?",
-        answer: "disabled"
+        correctAnswer: "disabled"
       },
       {
         id: 7,
         question: "¿Atributo para especificar el valor máximo en un input numérico?",
-        answer: "max"
+        correctAnswer: "max"
       },
       {
         id: 8,
         question: "¿Atributo para especificar el valor mínimo en un input numérico?",
-        answer: "min"
+        correctAnswer: "min"
       },
       {
         id: 9,
         question: "¿Atributo para especificar el paso en un input numérico?",
-        answer: "step"
+        correctAnswer: "step"
       },
       {
         id: 10,
         question: "¿Atributo para especificar el patrón de validación en un input?",
-        answer: "pattern"
+        correctAnswer: "pattern"
       }
     ],
     DIFICIL: [
       {
         id: 1,
         question: "¿Atributo para especificar el comportamiento de un elemento en un formulario?",
-        answer: "formaction"
+        correctAnswer: "formaction"
       },
       {
         id: 2,
         question: "¿Atributo para especificar el tipo de codificación en un formulario?",
-        answer: "formenctype"
+        correctAnswer: "formenctype"
       },
       {
         id: 3,
         question: "¿Atributo para especificar el destino de un formulario?",
-        answer: "formtarget"
+        correctAnswer: "formtarget"
       },
       {
         id: 4,
         question: "¿Atributo para especificar el comportamiento de autocompletado?",
-        answer: "autocomplete"
+        correctAnswer: "autocomplete"
       },
       {
         id: 5,
         question: "¿Atributo para especificar el comportamiento de arrastrar y soltar?",
-        answer: "draggable"
+        correctAnswer: "draggable"
       },
       {
         id: 6,
         question: "¿Atributo para especificar el comportamiento de un elemento en un formulario?",
-        answer: "formmethod"
+        correctAnswer: "formmethod"
       },
       {
         id: 7,
         question: "¿Atributo para especificar el comportamiento de un elemento en un formulario?",
-        answer: "formnovalidate"
+        correctAnswer: "formnovalidate"
       },
       {
         id: 8,
         question: "¿Atributo para especificar el comportamiento de un elemento en un formulario?",
-        answer: "form"
+        correctAnswer: "form"
       },
       {
         id: 9,
         question: "¿Atributo para especificar el comportamiento de un elemento en un formulario?",
-        answer: "formenctype"
+        correctAnswer: "formenctype"
       },
       {
         id: 10,
         question: "¿Atributo para especificar el comportamiento de un elemento en un formulario?",
-        answer: "formtarget"
+        correctAnswer: "formtarget"
       }
     ],
     PRO: [
@@ -821,61 +821,61 @@ export const htmlPuzzles = {
       {
         id: 1,
         question: "¿Qué etiqueta se usa para un párrafo?",
-        answer: "p",
+        correctAnswer: "p",
         options: ["p", "paragraph", "text", "para"]
       },
       {
         id: 2,
         question: "¿Qué etiqueta se usa para un enlace?",
-        answer: "a",
+        correctAnswer: "a",
         options: ["a", "link", "href", "url"]
       },
       {
         id: 3,
         question: "¿Qué etiqueta se usa para una imagen?",
-        answer: "img",
+        correctAnswer: "img",
         options: ["img", "image", "picture", "photo"]
       },
       {
         id: 4,
         question: "¿Qué etiqueta se usa para un título?",
-        answer: "h1",
+        correctAnswer: "h1",
         options: ["h1", "title", "heading", "header"]
       },
       {
         id: 5,
         question: "¿Qué etiqueta se usa para una lista?",
-        answer: "ul",
+        correctAnswer: "ul",
         options: ["ul", "list", "ol", "li"]
       },
       {
         id: 6,
         question: "¿Qué etiqueta se usa para un elemento de lista?",
-        answer: "li",
+        correctAnswer: "li",
         options: ["li", "item", "list-item", "element"]
       },
       {
         id: 7,
         question: "¿Qué etiqueta se usa para un botón?",
-        answer: "button",
+        correctAnswer: "button",
         options: ["button", "btn", "input", "submit"]
       },
       {
         id: 8,
         question: "¿Qué etiqueta se usa para un formulario?",
-        answer: "form",
+        correctAnswer: "form",
         options: ["form", "formulario", "input-group", "container"]
       },
       {
         id: 9,
         question: "¿Qué etiqueta se usa para un input?",
-        answer: "input",
+        correctAnswer: "input",
         options: ["input", "text", "field", "box"]
       },
       {
         id: 10,
         question: "¿Qué etiqueta se usa para un div?",
-        answer: "div",
+        correctAnswer: "div",
         options: ["div", "container", "box", "section"]
       }
     ],
@@ -883,61 +883,61 @@ export const htmlPuzzles = {
       {
         id: 1,
         question: "¿Qué etiqueta se usa para un párrafo?",
-        answer: "p",
+        correctAnswer: "p",
         options: ["p", "paragraph", "text", "para"]
       },
       {
         id: 2,
         question: "¿Qué etiqueta se usa para un enlace?",
-        answer: "a",
+        correctAnswer: "a",
         options: ["a", "link", "href", "url"]
       },
       {
         id: 3,
         question: "¿Qué etiqueta se usa para una imagen?",
-        answer: "img",
+        correctAnswer: "img",
         options: ["img", "image", "picture", "photo"]
       },
       {
         id: 4,
         question: "¿Qué etiqueta se usa para un título?",
-        answer: "h1",
+        correctAnswer: "h1",
         options: ["h1", "title", "heading", "header"]
       },
       {
         id: 5,
         question: "¿Qué etiqueta se usa para una lista?",
-        answer: "ul",
+        correctAnswer: "ul",
         options: ["ul", "list", "ol", "li"]
       },
       {
         id: 6,
         question: "¿Qué etiqueta se usa para un elemento de lista?",
-        answer: "li",
+        correctAnswer: "li",
         options: ["li", "item", "list-item", "element"]
       },
       {
         id: 7,
         question: "¿Qué etiqueta se usa para un botón?",
-        answer: "button",
+        correctAnswer: "button",
         options: ["button", "btn", "input", "submit"]
       },
       {
         id: 8,
         question: "¿Qué etiqueta se usa para un formulario?",
-        answer: "form",
+        correctAnswer: "form",
         options: ["form", "formulario", "input-group", "container"]
       },
       {
         id: 9,
         question: "¿Qué etiqueta se usa para un input?",
-        answer: "input",
+        correctAnswer: "input",
         options: ["input", "text", "field", "box"]
       },
       {
         id: 10,
         question: "¿Qué etiqueta se usa para un div?",
-        answer: "div",
+        correctAnswer: "div",
         options: ["div", "container", "box", "section"]
       }
     ],

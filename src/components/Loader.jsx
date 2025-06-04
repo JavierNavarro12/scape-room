@@ -50,8 +50,8 @@ const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 340px;
-    max-width: 600px;
+    min-width: 500px;
+    max-width: 900px;
     min-height: 220px;
     border: 2.5px solid #00ffe7;
     position: relative;
@@ -59,7 +59,7 @@ const StyledWrapper = styled.div`
   }
 
   .welcome-title {
-    font-size: 2.5em;
+    font-size: clamp(0.7em, 3vw, 2.5em);
     font-weight: 700;
     color: #00ffe7;
     margin-bottom: 38px;
@@ -69,6 +69,8 @@ const StyledWrapper = styled.div`
     animation: ${neonGlow} 2.2s infinite alternate;
     font-family: 'Orbitron', Arial, sans-serif;
     text-shadow: 0 0 8px #00ffe7, 0 0 24px #00ffe7, 0 0 48px #00ffe7;
+    white-space: nowrap;
+    max-width: 100%;
   }
 
   .loader-content {

@@ -82,6 +82,8 @@ function RoomSelector3D({
   onEscapeAnimationEnd = () => {},
   onRestart,
   selectedLevel,
+  showConfetti,
+  showEscapeMessage,
 }) {
   const [mode, setMode] = useState(externalMode || 'lobby');
   const [hovered, setHovered] = useState(null);
@@ -540,6 +542,70 @@ function RoomSelector3D({
           </svg>
         </div>
       )}
+      {showEscapeMessage && (
+        <div className="escape-message-overlay">
+          <div className="escape-message-card">
+            <h2>¡Felicidades! Has escapado del Escape Room Virtual 🎉</h2>
+            <button className="play-btn" onClick={onRestart} style={{marginTop: 24}}>
+              Volver al inicio
+            </button>
+          </div>
+        </div>
+      )}
+      <style>{`
+        .escape-message-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          pointer-events: none;
+        }
+        .escape-message-card {
+          background: rgba(24, 28, 36, 0.92);
+          border: 2.5px solid #00ffe7;
+          border-radius: 22px;
+          box-shadow: 0 8px 48px #00ffe799, 0 2px 8px #0008;
+          padding: 48px 32px 32px 32px;
+          text-align: center;
+          max-width: 520px;
+          min-width: 320px;
+          color: #fff;
+          font-size: 1.7em;
+          font-family: Orbitron, Arial, sans-serif;
+          pointer-events: auto;
+        }
+        .escape-message-card h2 {
+          margin-bottom: 24px;
+          font-size: 1.3em;
+          font-weight: 900;
+          color: #00ffe7;
+          letter-spacing: 2px;
+          text-shadow: 0 0 12px #00ffe7, 0 0 24px #00ffe7;
+        }
+        .escape-message-card .play-btn {
+          font-size: 1.1em;
+          font-weight: 700;
+          padding: 16px 44px;
+          border-radius: 14px;
+          background: linear-gradient(90deg, #00ffe7 0%, #00bfff 100%);
+          color: #181c24;
+          border: none;
+          box-shadow: 0 4px 32px #00ffe7aa, 0 2px 8px #0008;
+          cursor: pointer;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          text-shadow: 0 0 8px #fff, 0 0 16px #00ffe7;
+          transition: background 0.2s, color 0.2s, transform 0.15s;
+        }
+        .escape-message-card .play-btn:active {
+          transform: scale(0.97);
+        }
+      `}</style>
     </div>
   );
 }

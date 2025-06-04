@@ -9,6 +9,7 @@ import Puzzle3 from './components/Puzzle3';
 import Puzzle4 from './components/Puzzle4';
 import RoomSelector3D from './components/RoomSelector3D';
 import Loader from './components/Loader';
+import Confetti from 'react-confetti';
 import './App.css';
 
 function getRoomData(selectedRoom) {
@@ -27,8 +28,8 @@ function App() {
   const [completed, setCompleted] = useState(false);
   const [completedRooms, setCompletedRooms] = useState([]); // Ahora es un array de objetos: { room: 'html', level: 'BASICO' }
   const [galleryMode, setGalleryMode] = useState(false); // controla si se muestra la galería 3D
-  const [showEscapeAnimation, setShowEscapeAnimation] = useState(false); // animación de puerta
-  const [hasEscaped, setHasEscaped] = useState(false); // muestra mensaje final
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showEscapeMessage, setShowEscapeMessage] = useState(false);
   const [loading, setLoading] = useState(true);
   const [selectedLevel, setSelectedLevel] = useState(null); // 'BASICO', 'NORMAL', 'DIFICIL', 'PRO'
   const [showLevelMenu, setShowLevelMenu] = useState(false);
@@ -57,17 +58,17 @@ function App() {
       setCurrentPuzzle(currentPuzzle + 1);
     } else {
       setCompleted(true);
-      // Marca la sala como completada para el nivel actual y vuelve a la galería 3D
       setCompletedRooms(prev => {
         const already = prev.some(r => r.room === selectedRoom && r.level === selectedLevel);
         const newRooms = already ? prev : [...prev, { room: selectedRoom, level: selectedLevel }];
-        // Si se han completado las 4 salas en este nivel, activar animación de escape
         const roomsForLevel = newRooms.filter(r => r.level === selectedLevel);
         if (roomsForLevel.length === 4) {
           setTimeout(() => {
             setSelectedRoom(null);
             setGalleryMode(true);
-            setTimeout(() => setShowEscapeAnimation(true), 800); // espera a que entre en galería
+            setShowConfetti(true);
+            setShowEscapeMessage(true);
+            // El confeti se detiene solo cuando se pulsa 'Volver al inicio'
           }, 200);
         } else {
           setTimeout(() => {
@@ -84,18 +85,12 @@ function App() {
     setGalleryMode(false);
   };
 
-  // Cuando termina la animación de escape
-  const handleEscapeAnimationEnd = () => {
-    setShowEscapeAnimation(false);
-    setHasEscaped(true);
-  };
-
   // Volver al menú principal (pantalla de bienvenida)
   const handleRestart = () => {
     setSelectedRoom(null);
     setGalleryMode(false);
-    setHasEscaped(false);
-    setShowEscapeAnimation(false);
+    setShowConfetti(false);
+    setShowEscapeMessage(false);
     setCurrentPuzzle(0);
     setCompleted(false);
   };
@@ -120,26 +115,41 @@ function App() {
 
   return (
     <div className="App">
+      {showConfetti && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          recycle={true}
+          numberOfPieces={400}
+          style={{
+            position: 'fixed',
+            zIndex: 10000,
+            pointerEvents: 'none',
+            top: 0,
+            left: 0,
+          }}
+        />
+      )}
       {loading ? (
         <Loader />
       ) : (
         <>
           {(!selectedRoom && !galleryMode && !showLevelMenu) && (
-            <div className="welcome-screen">
-              <h1>Escape Room Virtual</h1>
+            <div className="welcome-screen main-welcome-screen">
+              <h1 className="main-title">ESCAPE VIRTUAL ROOM</h1>
               <button
                 className="play-btn"
                 onClick={() => setShowLevelMenu(true)}
               >
-                Jugar
+                JUGAR
               </button>
             </div>
           )}
           {showLevelMenu && !selectedRoom && !galleryMode && (
             <div className="welcome-screen level-menu-panel">
-              <h1>Selecciona el nivel</h1>
+              <h1 className="main-title" style={{whiteSpace: 'nowrap'}}>BIENVENIDO A CODING ROOM</h1>
               <div className="level-buttons">
-                {["BÁSICO", "NORMAL", "DIFÍCIL"].map(level => (
+                {['BÁSICO', 'NORMAL', 'DIFÍCIL'].map(level => (
                   <button
                     key={level}
                     className="level-btn"
@@ -165,9 +175,8 @@ function App() {
                 })}
               mode="gallery"
               onExitGallery={handleExitGallery}
-              showEscapeAnimation={showEscapeAnimation}
-              hasEscaped={hasEscaped}
-              onEscapeAnimationEnd={handleEscapeAnimationEnd}
+              showConfetti={showConfetti}
+              showEscapeMessage={showEscapeMessage}
               onRestart={handleRestart}
               selectedLevel={selectedLevel}
             />
@@ -180,6 +189,17 @@ function App() {
           )}
         </>
       )}
+      <style>{`
+        .main-title {
+          white-space: nowrap;
+          font-size: 2.5em;
+          font-family: Orbitron, Arial, sans-serif;
+          letter-spacing: 2px;
+          color: #00ffe7;
+          text-shadow: 0 0 12px #00ffe7, 0 0 24px #00ffe7;
+          margin-bottom: 32px;
+        }
+      `}</style>
     </div>
   );
 }

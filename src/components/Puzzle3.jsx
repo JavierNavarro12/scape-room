@@ -14,15 +14,37 @@ const Puzzle3 = ({ room, onComplete, level }) => {
   const [userAnswer, setUserAnswer] = useState('');
   const [isCorrect, setIsCorrect] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [error, setError] = useState(null);
 
   const resetPuzzle = useCallback(() => {
-    const questions = room.puzzle3[normalizeLevel(level)];
-    if (!questions || questions.length === 0) return;
-    let newQuestion = getRandomQuestion(questions);
-    setCurrentQuestion(newQuestion);
-    setUserAnswer('');
-    setIsCorrect(null);
-    setShowFeedback(false);
+    try {
+      const normalizedLevel = normalizeLevel(level);
+      const questions = room.puzzle3[normalizedLevel];
+      
+      if (!questions || questions.length === 0) {
+        setError('No hay preguntas disponibles para este nivel');
+        setCurrentQuestion(null);
+        return;
+      }
+
+      let newQuestion = getRandomQuestion(questions);
+      const answerValue = newQuestion.correctAnswer || newQuestion.answer;
+      if (!newQuestion || !answerValue) {
+        setError('Error al cargar la pregunta');
+        setCurrentQuestion(null);
+        return;
+      }
+
+      setCurrentQuestion(newQuestion);
+      setUserAnswer('');
+      setIsCorrect(null);
+      setShowFeedback(false);
+      setError(null);
+    } catch (err) {
+      console.error('Error al resetear el puzzle:', err);
+      setError('Error al cargar el puzzle');
+      setCurrentQuestion(null);
+    }
   }, [level, room.puzzle3]);
 
   useEffect(() => {
@@ -31,21 +53,58 @@ const Puzzle3 = ({ room, onComplete, level }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!userAnswer.trim()) return;
+    try {
+      if (!userAnswer.trim()) {
+        setError('Por favor, escribe una respuesta');
+        return;
+      }
 
-    // Comparar la respuesta del usuario con la respuesta correcta
-    const correct = userAnswer.toLowerCase().trim() === currentQuestion.answer.toLowerCase().trim();
-    setIsCorrect(correct);
-    setShowFeedback(true);
+      const answerValue = currentQuestion.correctAnswer || currentQuestion.answer;
+      if (!currentQuestion || !answerValue) {
+        setError('Error: pregunta no válida');
+        return;
+      }
 
-    if (correct) {
-      setTimeout(() => {
-        onComplete();
-      }, 1500);
+      const correct = userAnswer.toLowerCase().trim() === answerValue.toLowerCase().trim();
+      setIsCorrect(correct);
+      setShowFeedback(true);
+      setError(null);
+
+      if (correct) {
+        setTimeout(() => {
+          onComplete();
+        }, 1500);
+      }
+    } catch (err) {
+      console.error('Error al procesar la respuesta:', err);
+      setError('Error al procesar la respuesta');
     }
   };
 
-  if (!currentQuestion) return null;
+  if (error) {
+    return (
+      <div className="puzzle-container">
+        <h2>Puzzle 3: Respuesta Abierta</h2>
+        <div className="question-container">
+          <p className="error-message">{error}</p>
+          <button onClick={resetPuzzle} className="reset-button">
+            Intentar de nuevo
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!currentQuestion) {
+    return (
+      <div className="puzzle-container">
+        <h2>Puzzle 3: Respuesta Abierta</h2>
+        <div className="question-container">
+          <p>Cargando pregunta...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="puzzle-container">
@@ -80,13 +139,30 @@ const Puzzle3 = ({ room, onComplete, level }) => {
             ) : (
               <div>
                 <p>Incorrecto. La respuesta correcta era:</p>
-                <p className="correct-answer">{currentQuestion.answer}</p>
+                <p className="correct-answer">{(currentQuestion.correctAnswer || currentQuestion.answer)}</p>
               </div>
             )}
           </div>
         )}
       </div>
       <style>{`
+        .puzzle-container {
+          padding: 20px;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .question-container {
+          background: #ffffff;
+          padding: 24px;
+          border-radius: 16px;
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+          font-size: 1.4em;
+          color: #2d3748;
+          margin-bottom: 24px;
+          line-height: 1.5;
+        }
         .open-answer-form {
           display: flex;
           flex-direction: column;
@@ -142,6 +218,29 @@ const Puzzle3 = ({ room, onComplete, level }) => {
         }
         .reset-button:active {
           transform: scale(0.97);
+        }
+        .feedback {
+          text-align: center;
+          padding: 16px;
+          border-radius: 12px;
+          font-size: 1.2em;
+        }
+        .feedback.correct {
+          background: #48bb78;
+          color: white;
+        }
+        .feedback.incorrect {
+          background: #e53e3e;
+          color: white;
+        }
+        .correct-answer {
+          font-weight: bold;
+          margin-top: 8px;
+        }
+        .error-message {
+          color: #e53e3e;
+          text-align: center;
+          margin-bottom: 16px;
         }
       `}</style>
     </div>
