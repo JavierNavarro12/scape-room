@@ -1,26 +1,36 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { getRandomQuestion, getShuffledFragments } from '../utils/randomUtils';
 
-const Puzzle2 = ({ room, onComplete }) => {
+function normalizeLevel(level) {
+  if (!level) return '';
+  if (level.toUpperCase().startsWith('BÁS')) return 'BASICO';
+  if (level.toUpperCase().startsWith('NOR')) return 'NORMAL';
+  if (level.toUpperCase().startsWith('DIF')) return 'DIFICIL';
+  return level;
+}
+
+const Puzzle2 = ({ room, onComplete, level }) => {
   const [currentChallenge, setCurrentChallenge] = useState(null);
   const [shuffledFragments, setShuffledFragments] = useState([]);
+  const shuffledRef = useRef([]);
   const [selectedFragments, setSelectedFragments] = useState([]);
   const [draggedIndex, setDraggedIndex] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
   const resetPuzzle = useCallback(() => {
-    let newChallenge;
-    do {
-      newChallenge = getRandomQuestion(room.puzzle2.challenges);
-    } while (newChallenge === currentChallenge);
+    const challenges = room.puzzle2[normalizeLevel(level)];
+    if (!challenges || challenges.length === 0) return;
+    let newChallenge = getRandomQuestion(challenges);
     setCurrentChallenge(newChallenge);
-    setShuffledFragments(getShuffledFragments(newChallenge));
+    const shuffled = getShuffledFragments(newChallenge);
+    shuffledRef.current = shuffled;
+    setShuffledFragments(shuffled);
     setSelectedFragments([]);
     setIsCorrect(null);
     setShowFeedback(false);
     setDraggedIndex(null);
-  }, [room.puzzle2.challenges, currentChallenge]);
+  }, [level, room.puzzle2]);
 
   useEffect(() => {
     resetPuzzle();

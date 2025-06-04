@@ -1,22 +1,29 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { getRandomQuestion } from '../utils/randomUtils';
 
-const Puzzle3 = ({ room, onComplete }) => {
+function normalizeLevel(level) {
+  if (!level) return '';
+  if (level.toUpperCase().startsWith('BÁS')) return 'BASICO';
+  if (level.toUpperCase().startsWith('NOR')) return 'NORMAL';
+  if (level.toUpperCase().startsWith('DIF')) return 'DIFICIL';
+  return level;
+}
+
+const Puzzle3 = ({ room, onComplete, level }) => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   const [isCorrect, setIsCorrect] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
   const resetPuzzle = useCallback(() => {
-    let newQuestion;
-    do {
-      newQuestion = getRandomQuestion(room.puzzle3.questions);
-    } while (newQuestion === currentQuestion);
+    const questions = room.puzzle3[normalizeLevel(level)];
+    if (!questions || questions.length === 0) return;
+    let newQuestion = getRandomQuestion(questions);
     setCurrentQuestion(newQuestion);
     setUserAnswer('');
     setIsCorrect(null);
     setShowFeedback(false);
-  }, [room.puzzle3.questions, currentQuestion]);
+  }, [level, room.puzzle3]);
 
   useEffect(() => {
     resetPuzzle();

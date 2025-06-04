@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { getRandomQuestion, getShuffledOptions } from '../utils/randomUtils';
 
-const Puzzle4 = ({ room, onComplete }) => {
+function normalizeLevel(level) {
+  if (!level) return '';
+  if (level.toUpperCase().startsWith('BÁS')) return 'BASICO';
+  if (level.toUpperCase().startsWith('NOR')) return 'NORMAL';
+  if (level.toUpperCase().startsWith('DIF')) return 'DIFICIL';
+  return level;
+}
+
+const Puzzle4 = ({ room, onComplete, level }) => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [shuffledOptions, setShuffledOptions] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -9,16 +17,15 @@ const Puzzle4 = ({ room, onComplete }) => {
   const [showFeedback, setShowFeedback] = useState(false);
 
   const resetPuzzle = useCallback(() => {
-    let newQuestion;
-    do {
-      newQuestion = getRandomQuestion(room.puzzle4.questions);
-    } while (newQuestion === currentQuestion);
+    const questions = room.puzzle4[normalizeLevel(level)];
+    if (!questions || questions.length === 0) return;
+    let newQuestion = getRandomQuestion(questions);
     setCurrentQuestion(newQuestion);
     setShuffledOptions(getShuffledOptions(newQuestion));
     setSelectedAnswer(null);
     setIsCorrect(null);
     setShowFeedback(false);
-  }, [room.puzzle4.questions, currentQuestion]);
+  }, [level, room.puzzle4]);
 
   useEffect(() => {
     resetPuzzle();

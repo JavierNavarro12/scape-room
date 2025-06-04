@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { shuffleArray } from '../utils/randomUtils';
 
-const Puzzle1 = ({ room, onComplete }) => {
-  const questions = room.puzzle1.questions;
+const Puzzle1 = ({ room, onComplete, level }) => {
+  const questions = room.puzzle1[normalizeLevel(level)];
   const [remainingQuestions, setRemainingQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [shuffledOptions, setShuffledOptions] = useState([]);
@@ -116,5 +116,13 @@ const Puzzle1 = ({ room, onComplete }) => {
     </div>
   );
 };
+
+function normalizeLevel(level) {
+  if (!level) return '';
+  if (level.toUpperCase().startsWith('BÁS')) return 'BASICO';
+  if (level.toUpperCase().startsWith('NOR')) return 'NORMAL';
+  if (level.toUpperCase().startsWith('DIF')) return 'DIFICIL';
+  return level;
+}
 
 export default Puzzle1; 

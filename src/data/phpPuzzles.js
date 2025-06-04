@@ -271,10 +271,168 @@ export const phpPuzzles = {
       }
     ],
     NORMAL: [
-      // TODO: Añadir 10 challenges nivel Normal
+      {
+        id: 1,
+        correctOrder: [
+          "<?php",
+          "function saludar($nombre) { return 'Hola, ' . $nombre; }",
+          "?>"
+        ]
+      },
+      {
+        id: 2,
+        correctOrder: [
+          "<?php",
+          "$numeros = [1, 2, 3, 4, 5]; $suma = array_sum($numeros); echo $suma;",
+          "?>"
+        ]
+      },
+      {
+        id: 3,
+        correctOrder: [
+          "<?php",
+          "class Usuario { private $nombre; public function __construct($nombre) { $this->nombre = $nombre; } public function getNombre() { return $this->nombre; } }",
+          "?>"
+        ]
+      },
+      {
+        id: 4,
+        correctOrder: [
+          "<?php",
+          "try { $conexion = new PDO('mysql:host=localhost;dbname=test', 'usuario', 'contraseña'); $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); } catch(PDOException $e) { echo 'Error: ' . $e->getMessage(); }",
+          "?>"
+        ]
+      },
+      {
+        id: 5,
+        correctOrder: [
+          "<?php",
+          "session_start(); $_SESSION['usuario'] = 'Juan'; echo $_SESSION['usuario'];",
+          "?>"
+        ]
+      },
+      {
+        id: 6,
+        correctOrder: [
+          "<?php",
+          "function factorial($n) { if ($n <= 1) return 1; return $n * factorial($n - 1); }",
+          "?>"
+        ]
+      },
+      {
+        id: 7,
+        correctOrder: [
+          "<?php",
+          "$archivo = 'datos.txt'; if (file_exists($archivo)) { $contenido = file_get_contents($archivo); echo $contenido; }",
+          "?>"
+        ]
+      },
+      {
+        id: 8,
+        correctOrder: [
+          "<?php",
+          "function esPalindromo($str) { $limpio = strtolower(preg_replace('/[^a-z0-9]/', '', $str)); return $limpio === strrev($limpio); }",
+          "?>"
+        ]
+      },
+      {
+        id: 9,
+        correctOrder: [
+          "<?php",
+          "$json = '{\"nombre\": \"Juan\", \"edad\": 25}'; $datos = json_decode($json, true); echo $datos['nombre'];",
+          "?>"
+        ]
+      },
+      {
+        id: 10,
+        correctOrder: [
+          "<?php",
+          "function filtrarPares($array) { return array_filter($array, function($num) { return $num % 2 === 0; }); }",
+          "?>"
+        ]
+      }
     ],
     DIFICIL: [
-      // TODO: Añadir 10 challenges nivel Difícil
+      {
+        id: 1,
+        correctOrder: [
+          "<?php",
+          "function saludar($nombre) { return 'Hola, ' . $nombre; }",
+          "?>"
+        ]
+      },
+      {
+        id: 2,
+        correctOrder: [
+          "<?php",
+          "$numeros = [1, 2, 3, 4, 5]; $suma = array_sum($numeros); echo $suma;",
+          "?>"
+        ]
+      },
+      {
+        id: 3,
+        correctOrder: [
+          "<?php",
+          "class Usuario { private $nombre; public function __construct($nombre) { $this->nombre = $nombre; } public function getNombre() { return $this->nombre; } }",
+          "?>"
+        ]
+      },
+      {
+        id: 4,
+        correctOrder: [
+          "<?php",
+          "try { $conexion = new PDO('mysql:host=localhost;dbname=test', 'usuario', 'contraseña'); $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); } catch(PDOException $e) { echo 'Error: ' . $e->getMessage(); }",
+          "?>"
+        ]
+      },
+      {
+        id: 5,
+        correctOrder: [
+          "<?php",
+          "session_start(); $_SESSION['usuario'] = 'Juan'; echo $_SESSION['usuario'];",
+          "?>"
+        ]
+      },
+      {
+        id: 6,
+        correctOrder: [
+          "<?php",
+          "function factorial($n) { if ($n <= 1) return 1; return $n * factorial($n - 1); }",
+          "?>"
+        ]
+      },
+      {
+        id: 7,
+        correctOrder: [
+          "<?php",
+          "$archivo = 'datos.txt'; if (file_exists($archivo)) { $contenido = file_get_contents($archivo); echo $contenido; }",
+          "?>"
+        ]
+      },
+      {
+        id: 8,
+        correctOrder: [
+          "<?php",
+          "function esPalindromo($str) { $limpio = strtolower(preg_replace('/[^a-z0-9]/', '', $str)); return $limpio === strrev($limpio); }",
+          "?>"
+        ]
+      },
+      {
+        id: 9,
+        correctOrder: [
+          "<?php",
+          "$json = '{\"nombre\": \"Juan\", \"edad\": 25}'; $datos = json_decode($json, true); echo $datos['nombre'];",
+          "?>"
+        ]
+      },
+      {
+        id: 10,
+        correctOrder: [
+          "<?php",
+          "function filtrarPares($array) { return array_filter($array, function($num) { return $num % 2 === 0; }); }",
+          "?>"
+        ]
+      }
     ]
   },
   puzzle3: {
@@ -331,10 +489,108 @@ export const phpPuzzles = {
       }
     ],
     NORMAL: [
-      // TODO: Añadir 10 preguntas nivel Normal
+      {
+        id: 1,
+        question: "¿Palabra clave para declarar una variable?",
+        answer: "$"
+      },
+      {
+        id: 2,
+        question: "¿Función para imprimir en pantalla?",
+        answer: "echo"
+      },
+      {
+        id: 3,
+        question: "¿Función para obtener la longitud de un string?",
+        answer: "strlen"
+      },
+      {
+        id: 4,
+        question: "¿Función para convertir un string a array?",
+        answer: "explode"
+      },
+      {
+        id: 5,
+        question: "¿Función para unir elementos de un array en un string?",
+        answer: "implode"
+      },
+      {
+        id: 6,
+        question: "¿Palabra clave para definir una función?",
+        answer: "function"
+      },
+      {
+        id: 7,
+        question: "¿Palabra clave para definir una constante?",
+        answer: "define"
+      },
+      {
+        id: 8,
+        question: "¿Función para obtener la fecha actual?",
+        answer: "date"
+      },
+      {
+        id: 9,
+        question: "¿Palabra clave para incluir un archivo?",
+        answer: "include"
+      },
+      {
+        id: 10,
+        question: "¿Palabra clave para crear una clase?",
+        answer: "class"
+      }
     ],
     DIFICIL: [
-      // TODO: Añadir 10 preguntas nivel Difícil
+      {
+        id: 1,
+        question: "¿Palabra clave para declarar una variable?",
+        answer: "$"
+      },
+      {
+        id: 2,
+        question: "¿Función para imprimir en pantalla?",
+        answer: "echo"
+      },
+      {
+        id: 3,
+        question: "¿Función para obtener la longitud de un string?",
+        answer: "strlen"
+      },
+      {
+        id: 4,
+        question: "¿Función para convertir un string a array?",
+        answer: "explode"
+      },
+      {
+        id: 5,
+        question: "¿Función para unir elementos de un array en un string?",
+        answer: "implode"
+      },
+      {
+        id: 6,
+        question: "¿Palabra clave para definir una función?",
+        answer: "function"
+      },
+      {
+        id: 7,
+        question: "¿Palabra clave para definir una constante?",
+        answer: "define"
+      },
+      {
+        id: 8,
+        question: "¿Función para obtener la fecha actual?",
+        answer: "date"
+      },
+      {
+        id: 9,
+        question: "¿Palabra clave para incluir un archivo?",
+        answer: "include"
+      },
+      {
+        id: 10,
+        question: "¿Palabra clave para crear una clase?",
+        answer: "class"
+      }
     ]
   },
   puzzle4: {
@@ -401,10 +657,128 @@ export const phpPuzzles = {
       }
     ],
     NORMAL: [
-      // TODO: Añadir 10 preguntas nivel Normal
+      {
+        id: 1,
+        question: "¿Cuál es la función para obtener la fecha actual en PHP?",
+        correctAnswer: "date()",
+        options: ["date()", "time()", "now()", "current()"]
+      },
+      {
+        id: 2,
+        question: "¿Qué función se usa para formatear una fecha en PHP?",
+        correctAnswer: "date_format()",
+        options: ["date_format()", "format_date()", "strftime()", "format()"]
+      },
+      {
+        id: 3,
+        question: "¿Cuál es la función para obtener la marca de tiempo actual?",
+        correctAnswer: "time()",
+        options: ["time()", "timestamp()", "now()", "current()"]
+      },
+      {
+        id: 4,
+        question: "¿Qué función se usa para convertir una fecha a timestamp?",
+        correctAnswer: "strtotime()",
+        options: ["strtotime()", "to_timestamp()", "convert_date()", "date_to_time()"]
+      },
+      {
+        id: 5,
+        question: "¿Cuál es la función para obtener la diferencia entre fechas?",
+        correctAnswer: "date_diff()",
+        options: ["date_diff()", "diff_date()", "date_compare()", "compare_dates()"]
+      },
+      {
+        id: 6,
+        question: "¿Qué función se usa para añadir días a una fecha?",
+        correctAnswer: "date_add()",
+        options: ["date_add()", "add_days()", "date_modify()", "modify_date()"]
+      },
+      {
+        id: 7,
+        question: "¿Cuál es la función para obtener el día de la semana?",
+        correctAnswer: "date('w')",
+        options: ["date('w')", "weekday()", "get_day()", "day_of_week()"]
+      },
+      {
+        id: 8,
+        question: "¿Qué función se usa para validar una fecha?",
+        correctAnswer: "checkdate()",
+        options: ["checkdate()", "validate_date()", "is_date()", "date_valid()"]
+      },
+      {
+        id: 9,
+        question: "¿Cuál es la función para obtener el último día del mes?",
+        correctAnswer: "date('t')",
+        options: ["date('t')", "last_day()", "end_of_month()", "month_end()"]
+      },
+      {
+        id: 10,
+        question: "¿Qué función se usa para formatear una fecha en español?",
+        correctAnswer: "strftime()",
+        options: ["strftime()", "format_date()", "date_format()", "format()"]
+      }
     ],
     DIFICIL: [
-      // TODO: Añadir 10 preguntas nivel Difícil
+      {
+        id: 1,
+        question: "¿Cuál es la función para obtener la fecha actual en PHP?",
+        correctAnswer: "date()",
+        options: ["date()", "time()", "now()", "current()"]
+      },
+      {
+        id: 2,
+        question: "¿Qué función se usa para formatear una fecha en PHP?",
+        correctAnswer: "date_format()",
+        options: ["date_format()", "format_date()", "strftime()", "format()"]
+      },
+      {
+        id: 3,
+        question: "¿Cuál es la función para obtener la marca de tiempo actual?",
+        correctAnswer: "time()",
+        options: ["time()", "timestamp()", "now()", "current()"]
+      },
+      {
+        id: 4,
+        question: "¿Qué función se usa para convertir una fecha a timestamp?",
+        correctAnswer: "strtotime()",
+        options: ["strtotime()", "to_timestamp()", "convert_date()", "date_to_time()"]
+      },
+      {
+        id: 5,
+        question: "¿Cuál es la función para obtener la diferencia entre fechas?",
+        correctAnswer: "date_diff()",
+        options: ["date_diff()", "diff_date()", "date_compare()", "compare_dates()"]
+      },
+      {
+        id: 6,
+        question: "¿Qué función se usa para añadir días a una fecha?",
+        correctAnswer: "date_add()",
+        options: ["date_add()", "add_days()", "date_modify()", "modify_date()"]
+      },
+      {
+        id: 7,
+        question: "¿Cuál es la función para obtener el día de la semana?",
+        correctAnswer: "date('w')",
+        options: ["date('w')", "weekday()", "get_day()", "day_of_week()"]
+      },
+      {
+        id: 8,
+        question: "¿Qué función se usa para validar una fecha?",
+        correctAnswer: "checkdate()",
+        options: ["checkdate()", "validate_date()", "is_date()", "date_valid()"]
+      },
+      {
+        id: 9,
+        question: "¿Cuál es la función para obtener el último día del mes?",
+        correctAnswer: "date('t')",
+        options: ["date('t')", "last_day()", "end_of_month()", "month_end()"]
+      },
+      {
+        id: 10,
+        question: "¿Qué función se usa para formatear una fecha en español?",
+        correctAnswer: "strftime()",
+        options: ["strftime()", "format_date()", "date_format()", "format()"]
+      }
     ]
   }
 }; 

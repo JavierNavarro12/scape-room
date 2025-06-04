@@ -488,105 +488,105 @@ export const jsPuzzles = {
     NORMAL: [
       {
         id: 1,
-        question: "¿Método para eliminar el primer elemento de un array?",
-        answer: "shift"
+        question: "¿Cómo se declara una variable en JavaScript?",
+        answer: "let"
       },
       {
         id: 2,
-        question: "¿Método para buscar un elemento en un array?",
-        answer: "find"
+        question: "¿Cómo se imprime en la consola?",
+        answer: "console.log"
       },
       {
         id: 3,
-        question: "¿Método para obtener el índice de un elemento?",
-        answer: "indexOf"
+        question: "¿Cómo se declara una constante?",
+        answer: "const"
       },
       {
         id: 4,
-        question: "¿Método para ordenar un array?",
-        answer: "sort"
+        question: "¿Cómo se declara una función?",
+        answer: "function"
       },
       {
         id: 5,
-        question: "¿Método para invertir un array?",
-        answer: "reverse"
+        question: "¿Cómo se declara un array?",
+        answer: "[]"
       },
       {
         id: 6,
-        question: "¿Método para unir dos arrays?",
-        answer: "concat"
+        question: "¿Cómo se declara un objeto?",
+        answer: "{}"
       },
       {
         id: 7,
-        question: "¿Método para obtener una parte de un array?",
-        answer: "slice"
+        question: "¿Cómo se declara una clase?",
+        answer: "class"
       },
       {
         id: 8,
-        question: "¿Método para eliminar elementos de un array?",
-        answer: "splice"
+        question: "¿Cómo se declara un bucle for?",
+        answer: "for"
       },
       {
         id: 9,
-        question: "¿Método para comprobar si un array incluye un elemento?",
-        answer: "includes"
+        question: "¿Cómo se declara un bucle while?",
+        answer: "while"
       },
       {
         id: 10,
-        question: "¿Método para recorrer un array y transformar sus elementos?",
-        answer: "map"
+        question: "¿Cómo se declara un if?",
+        answer: "if"
       }
     ],
     DIFICIL: [
       {
         id: 1,
-        question: "¿Método para filtrar elementos de un array?",
-        answer: "filter"
+        question: "¿Cómo se declara una variable en JavaScript?",
+        answer: "let"
       },
       {
         id: 2,
-        question: "¿Método para reducir un array a un solo valor?",
-        answer: "reduce"
+        question: "¿Cómo se imprime en la consola?",
+        answer: "console.log"
       },
       {
         id: 3,
-        question: "¿Método para recorrer cada elemento de un array?",
-        answer: "forEach"
+        question: "¿Cómo se declara una constante?",
+        answer: "const"
       },
       {
         id: 4,
-        question: "¿Método para comprobar si todos los elementos cumplen una condición?",
-        answer: "every"
+        question: "¿Cómo se declara una función?",
+        answer: "function"
       },
       {
         id: 5,
-        question: "¿Método para comprobar si al menos un elemento cumple una condición?",
-        answer: "some"
+        question: "¿Cómo se declara un array?",
+        answer: "[]"
       },
       {
         id: 6,
-        question: "¿Método para obtener las claves de un objeto?",
-        answer: "Object.keys"
+        question: "¿Cómo se declara un objeto?",
+        answer: "{}"
       },
       {
         id: 7,
-        question: "¿Método para obtener los valores de un objeto?",
-        answer: "Object.values"
+        question: "¿Cómo se declara una clase?",
+        answer: "class"
       },
       {
         id: 8,
-        question: "¿Método para obtener pares clave-valor de un objeto?",
-        answer: "Object.entries"
+        question: "¿Cómo se declara un bucle for?",
+        answer: "for"
       },
       {
         id: 9,
-        question: "¿Método para convertir un objeto a JSON?",
-        answer: "JSON.stringify"
+        question: "¿Cómo se declara un bucle while?",
+        answer: "while"
       },
       {
         id: 10,
-        question: "¿Método para convertir JSON a objeto?",
-        answer: "JSON.parse"
+        question: "¿Cómo se declara un if?",
+        answer: "if"
       }
     ]
   },
@@ -656,125 +656,125 @@ export const jsPuzzles = {
     NORMAL: [
       {
         id: 1,
-        question: "¿Qué método convierte un objeto a JSON?",
-        correctAnswer: "JSON.stringify()",
-        options: ["JSON.stringify()", "JSON.parse()", "toJSON()", "stringify()"]
+        question: "¿Qué método se usa para añadir un elemento al final de un array?",
+        answer: "push",
+        options: ["push", "add", "append", "insert"]
       },
       {
         id: 2,
-        question: "¿Qué método convierte JSON a objeto?",
-        correctAnswer: "JSON.parse()",
-        options: ["JSON.parse()", "JSON.stringify()", "fromJSON()", "parse()"]
+        question: "¿Qué método se usa para eliminar el último elemento de un array?",
+        answer: "pop",
+        options: ["pop", "remove", "delete", "extract"]
       },
       {
         id: 3,
-        question: "¿Qué método obtiene las claves de un objeto?",
-        correctAnswer: "Object.keys()",
-        options: ["Object.keys()", "Object.values()", "Object.entries()", "Object.getKeys()"]
+        question: "¿Qué método se usa para añadir un elemento al principio de un array?",
+        answer: "unshift",
+        options: ["unshift", "prepend", "insert", "add"]
       },
       {
         id: 4,
-        question: "¿Qué método obtiene los valores de un objeto?",
-        correctAnswer: "Object.values()",
-        options: ["Object.values()", "Object.keys()", "Object.entries()", "Object.getValues()"]
+        question: "¿Qué método se usa para eliminar el primer elemento de un array?",
+        answer: "shift",
+        options: ["shift", "remove", "delete", "extract"]
       },
       {
         id: 5,
-        question: "¿Qué método obtiene pares clave-valor de un objeto?",
-        correctAnswer: "Object.entries()",
-        options: ["Object.entries()", "Object.keys()", "Object.values()", "Object.pairs()"]
+        question: "¿Qué método se usa para buscar un elemento en un array?",
+        answer: "find",
+        options: ["find", "search", "locate", "get"]
       },
       {
         id: 6,
-        question: "¿Qué método recorre un array y transforma sus elementos?",
-        correctAnswer: "map()",
-        options: ["map()", "forEach()", "filter()", "reduce()"]
+        question: "¿Qué método se usa para obtener el índice de un elemento?",
+        answer: "indexOf",
+        options: ["indexOf", "findIndex", "search", "locate"]
       },
       {
         id: 7,
-        question: "¿Qué método filtra elementos de un array?",
-        correctAnswer: "filter()",
-        options: ["filter()", "find()", "map()", "reduce()"]
+        question: "¿Qué método se usa para ordenar un array?",
+        answer: "sort",
+        options: ["sort", "order", "arrange", "organize"]
       },
       {
         id: 8,
-        question: "¿Qué método reduce un array a un solo valor?",
-        correctAnswer: "reduce()",
-        options: ["reduce()", "map()", "filter()", "sum()"]
+        question: "¿Qué método se usa para invertir un array?",
+        answer: "reverse",
+        options: ["reverse", "flip", "invert", "turn"]
       },
       {
         id: 9,
-        question: "¿Qué método recorre cada elemento de un array?",
-        correctAnswer: "forEach()",
-        options: ["forEach()", "map()", "filter()", "loop()"]
+        question: "¿Qué método se usa para unir dos arrays?",
+        answer: "concat",
+        options: ["concat", "join", "merge", "combine"]
       },
       {
         id: 10,
-        question: "¿Qué método comprueba si todos los elementos cumplen una condición?",
-        correctAnswer: "every()",
-        options: ["every()", "some()", "all()", "checkAll()"]
+        question: "¿Qué método se usa para obtener una parte de un array?",
+        answer: "slice",
+        options: ["slice", "cut", "extract", "substring"]
       }
     ],
     DIFICIL: [
       {
         id: 1,
-        question: "¿Qué método comprueba si al menos un elemento cumple una condición?",
-        correctAnswer: "some()",
-        options: ["some()", "every()", "any()", "checkAny()"]
+        question: "¿Qué método se usa para añadir un elemento al final de un array?",
+        answer: "push",
+        options: ["push", "add", "append", "insert"]
       },
       {
         id: 2,
-        question: "¿Qué método obtiene las claves de un objeto?",
-        correctAnswer: "Object.keys()",
-        options: ["Object.keys()", "Object.values()", "Object.entries()", "Object.getKeys()"]
+        question: "¿Qué método se usa para eliminar el último elemento de un array?",
+        answer: "pop",
+        options: ["pop", "remove", "delete", "extract"]
       },
       {
         id: 3,
-        question: "¿Qué método obtiene los valores de un objeto?",
-        correctAnswer: "Object.values()",
-        options: ["Object.values()", "Object.keys()", "Object.entries()", "Object.getValues()"]
+        question: "¿Qué método se usa para añadir un elemento al principio de un array?",
+        answer: "unshift",
+        options: ["unshift", "prepend", "insert", "add"]
       },
       {
         id: 4,
-        question: "¿Qué método obtiene pares clave-valor de un objeto?",
-        correctAnswer: "Object.entries()",
-        options: ["Object.entries()", "Object.keys()", "Object.values()", "Object.pairs()"]
+        question: "¿Qué método se usa para eliminar el primer elemento de un array?",
+        answer: "shift",
+        options: ["shift", "remove", "delete", "extract"]
       },
       {
         id: 5,
-        question: "¿Qué método convierte un objeto a JSON?",
-        correctAnswer: "JSON.stringify()",
-        options: ["JSON.stringify()", "JSON.parse()", "toJSON()", "stringify()"]
+        question: "¿Qué método se usa para buscar un elemento en un array?",
+        answer: "find",
+        options: ["find", "search", "locate", "get"]
       },
       {
         id: 6,
-        question: "¿Qué método convierte JSON a objeto?",
-        correctAnswer: "JSON.parse()",
-        options: ["JSON.parse()", "JSON.stringify()", "fromJSON()", "parse()"]
+        question: "¿Qué método se usa para obtener el índice de un elemento?",
+        answer: "indexOf",
+        options: ["indexOf", "findIndex", "search", "locate"]
       },
       {
         id: 7,
-        question: "¿Qué método recorre un array y transforma sus elementos?",
-        correctAnswer: "map()",
-        options: ["map()", "forEach()", "filter()", "reduce()"]
+        question: "¿Qué método se usa para ordenar un array?",
+        answer: "sort",
+        options: ["sort", "order", "arrange", "organize"]
       },
       {
         id: 8,
-        question: "¿Qué método filtra elementos de un array?",
-        correctAnswer: "filter()",
-        options: ["filter()", "find()", "map()", "reduce()"]
+        question: "¿Qué método se usa para invertir un array?",
+        answer: "reverse",
+        options: ["reverse", "flip", "invert", "turn"]
       },
       {
         id: 9,
-        question: "¿Qué método reduce un array a un solo valor?",
-        correctAnswer: "reduce()",
-        options: ["reduce()", "map()", "filter()", "sum()"]
+        question: "¿Qué método se usa para unir dos arrays?",
+        answer: "concat",
+        options: ["concat", "join", "merge", "combine"]
       },
       {
         id: 10,
-        question: "¿Qué método recorre cada elemento de un array?",
-        correctAnswer: "forEach()",
-        options: ["forEach()", "map()", "filter()", "loop()"]
+        question: "¿Qué método se usa para obtener una parte de un array?",
+        answer: "slice",
+        options: ["slice", "cut", "extract", "substring"]
       }
     ]
   }

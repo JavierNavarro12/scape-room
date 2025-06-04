@@ -820,125 +820,125 @@ export const htmlPuzzles = {
     NORMAL: [
       {
         id: 1,
-        question: "¿Cuál es la etiqueta correcta para crear un contenido independiente y autocontenido?",
-        correctAnswer: "<article>",
-        options: ["<article>", "<section>", "<div>", "<content>"]
+        question: "¿Qué etiqueta se usa para un párrafo?",
+        answer: "p",
+        options: ["p", "paragraph", "text", "para"]
       },
       {
         id: 2,
-        question: "¿Qué etiqueta se usa para crear una barra lateral?",
-        correctAnswer: "<aside>",
-        options: ["<aside>", "<sidebar>", "<side>", "<nav>"]
+        question: "¿Qué etiqueta se usa para un enlace?",
+        answer: "a",
+        options: ["a", "link", "href", "url"]
       },
       {
         id: 3,
-        question: "¿Cuál es la etiqueta para crear un pie de página?",
-        correctAnswer: "<footer>",
-        options: ["<footer>", "<bottom>", "<end>", "<foot>"]
+        question: "¿Qué etiqueta se usa para una imagen?",
+        answer: "img",
+        options: ["img", "image", "picture", "photo"]
       },
       {
         id: 4,
-        question: "¿Qué etiqueta se usa para crear un encabezado de sección?",
-        correctAnswer: "<header>",
-        options: ["<header>", "<head>", "<top>", "<heading>"]
+        question: "¿Qué etiqueta se usa para un título?",
+        answer: "h1",
+        options: ["h1", "title", "heading", "header"]
       },
       {
         id: 5,
-        question: "¿Cuál es la etiqueta para crear una navegación principal?",
-        correctAnswer: "<nav>",
-        options: ["<nav>", "<navigation>", "<menu>", "<navbar>"]
+        question: "¿Qué etiqueta se usa para una lista?",
+        answer: "ul",
+        options: ["ul", "list", "ol", "li"]
       },
       {
         id: 6,
-        question: "¿Qué etiqueta se usa para crear una sección independiente?",
-        correctAnswer: "<section>",
-        options: ["<section>", "<div>", "<part>", "<block>"]
+        question: "¿Qué etiqueta se usa para un elemento de lista?",
+        answer: "li",
+        options: ["li", "item", "list-item", "element"]
       },
       {
         id: 7,
-        question: "¿Cuál es la etiqueta para crear un contenido principal?",
-        correctAnswer: "<main>",
-        options: ["<main>", "<content>", "<body>", "<primary>"]
+        question: "¿Qué etiqueta se usa para un botón?",
+        answer: "button",
+        options: ["button", "btn", "input", "submit"]
       },
       {
         id: 8,
-        question: "¿Qué etiqueta se usa para crear una figura con su leyenda?",
-        correctAnswer: "<figure>",
-        options: ["<figure>", "<image>", "<picture>", "<fig>"]
+        question: "¿Qué etiqueta se usa para un formulario?",
+        answer: "form",
+        options: ["form", "formulario", "input-group", "container"]
       },
       {
         id: 9,
-        question: "¿Cuál es la etiqueta para crear un contenido expandible?",
-        correctAnswer: "<details>",
-        options: ["<details>", "<expand>", "<show>", "<toggle>"]
+        question: "¿Qué etiqueta se usa para un input?",
+        answer: "input",
+        options: ["input", "text", "field", "box"]
       },
       {
         id: 10,
-        question: "¿Qué etiqueta se usa para crear un marcador de tiempo?",
-        correctAnswer: "<time>",
-        options: ["<time>", "<date>", "<timestamp>", "<datetime>"]
+        question: "¿Qué etiqueta se usa para un div?",
+        answer: "div",
+        options: ["div", "container", "box", "section"]
       }
     ],
     DIFICIL: [
       {
         id: 1,
-        question: "¿Cuál es el atributo correcto para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formaction='submit.php'",
-        options: ["formaction='submit.php'", "action='submit.php'", "submit='submit.php'", "form='submit.php'"]
+        question: "¿Qué etiqueta se usa para un párrafo?",
+        answer: "p",
+        options: ["p", "paragraph", "text", "para"]
       },
       {
         id: 2,
-        question: "¿Qué atributo se usa para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formmethod='post'",
-        options: ["formmethod='post'", "method='post'", "submit='post'", "form='post'"]
+        question: "¿Qué etiqueta se usa para un enlace?",
+        answer: "a",
+        options: ["a", "link", "href", "url"]
       },
       {
         id: 3,
-        question: "¿Cuál es el atributo para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formenctype='multipart/form-data'",
-        options: ["formenctype='multipart/form-data'", "enctype='multipart/form-data'", "type='multipart/form-data'", "form='multipart/form-data'"]
+        question: "¿Qué etiqueta se usa para una imagen?",
+        answer: "img",
+        options: ["img", "image", "picture", "photo"]
       },
       {
         id: 4,
-        question: "¿Qué atributo se usa para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formtarget='_blank'",
-        options: ["formtarget='_blank'", "target='_blank'", "window='_blank'", "form='_blank'"]
+        question: "¿Qué etiqueta se usa para un título?",
+        answer: "h1",
+        options: ["h1", "title", "heading", "header"]
       },
       {
         id: 5,
-        question: "¿Cuál es el atributo para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formnovalidate",
-        options: ["formnovalidate", "novalidate", "validate='false'", "form='novalidate'"]
+        question: "¿Qué etiqueta se usa para una lista?",
+        answer: "ul",
+        options: ["ul", "list", "ol", "li"]
       },
       {
         id: 6,
-        question: "¿Qué atributo se usa para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "form='form-id'",
-        options: ["form='form-id'", "formid='form-id'", "formname='form-id'", "formref='form-id'"]
+        question: "¿Qué etiqueta se usa para un elemento de lista?",
+        answer: "li",
+        options: ["li", "item", "list-item", "element"]
       },
       {
         id: 7,
-        question: "¿Cuál es el atributo para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formaction='submit.php'",
-        options: ["formaction='submit.php'", "action='submit.php'", "submit='submit.php'", "form='submit.php'"]
+        question: "¿Qué etiqueta se usa para un botón?",
+        answer: "button",
+        options: ["button", "btn", "input", "submit"]
       },
       {
         id: 8,
-        question: "¿Qué atributo se usa para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formmethod='post'",
-        options: ["formmethod='post'", "method='post'", "submit='post'", "form='post'"]
+        question: "¿Qué etiqueta se usa para un formulario?",
+        answer: "form",
+        options: ["form", "formulario", "input-group", "container"]
       },
       {
         id: 9,
-        question: "¿Cuál es el atributo para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formenctype='multipart/form-data'",
-        options: ["formenctype='multipart/form-data'", "enctype='multipart/form-data'", "type='multipart/form-data'", "form='multipart/form-data'"]
+        question: "¿Qué etiqueta se usa para un input?",
+        answer: "input",
+        options: ["input", "text", "field", "box"]
       },
       {
         id: 10,
-        question: "¿Qué atributo se usa para especificar el comportamiento de un elemento en un formulario?",
-        correctAnswer: "formtarget='_blank'",
-        options: ["formtarget='_blank'", "target='_blank'", "window='_blank'", "form='_blank'"]
+        question: "¿Qué etiqueta se usa para un div?",
+        answer: "div",
+        options: ["div", "container", "box", "section"]
       }
     ],
     PRO: [

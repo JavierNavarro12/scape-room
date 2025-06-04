@@ -521,105 +521,125 @@ export const cssPuzzles = {
     NORMAL: [
       {
         id: 1,
-        question: "¿Propiedad para el interlineado?",
-        answer: "line-height"
+        question: "¿Qué propiedad CSS se usa para cambiar el color del texto?",
+        answer: "color",
+        options: ["color", "text-color", "font-color", "text-style"]
       },
       {
         id: 2,
-        question: "¿Propiedad para el espaciado entre letras?",
-        answer: "letter-spacing"
+        question: "¿Qué propiedad CSS se usa para cambiar el tamaño de la fuente?",
+        answer: "font-size",
+        options: ["font-size", "text-size", "size", "font"]
       },
       {
         id: 3,
-        question: "¿Propiedad para la decoración del texto?",
-        answer: "text-decoration"
+        question: "¿Qué propiedad CSS se usa para cambiar el fondo de un elemento?",
+        answer: "background-color",
+        options: ["background-color", "bg-color", "color-background", "background"]
       },
       {
         id: 4,
-        question: "¿Propiedad para el tipo de borde?",
-        answer: "border-style"
+        question: "¿Qué propiedad CSS se usa para cambiar el margen de un elemento?",
+        answer: "margin",
+        options: ["margin", "spacing", "space", "padding"]
       },
       {
         id: 5,
-        question: "¿Propiedad para el tipo de cursor?",
-        answer: "cursor"
+        question: "¿Qué propiedad CSS se usa para cambiar el padding de un elemento?",
+        answer: "padding",
+        options: ["padding", "inner-margin", "spacing", "margin"]
       },
       {
         id: 6,
-        question: "¿Propiedad para la alineación vertical?",
-        answer: "vertical-align"
+        question: "¿Qué propiedad CSS se usa para cambiar el borde de un elemento?",
+        answer: "border",
+        options: ["border", "outline", "frame", "edge"]
       },
       {
         id: 7,
-        question: "¿Propiedad para la posición?",
-        answer: "position"
+        question: "¿Qué propiedad CSS se usa para cambiar la opacidad de un elemento?",
+        answer: "opacity",
+        options: ["opacity", "transparency", "visibility", "alpha"]
       },
       {
         id: 8,
-        question: "¿Propiedad para la sombra del texto?",
-        answer: "text-shadow"
+        question: "¿Qué propiedad CSS se usa para cambiar la familia de fuente?",
+        answer: "font-family",
+        options: ["font-family", "font-type", "text-family", "font"]
       },
       {
         id: 9,
-        question: "¿Propiedad para ocultar un elemento?",
-        answer: "display: none"
+        question: "¿Qué propiedad CSS se usa para cambiar el ancho de un elemento?",
+        answer: "width",
+        options: ["width", "size", "length", "horizontal"]
       },
       {
         id: 10,
-        question: "¿Propiedad para el espaciado interno?",
-        answer: "padding"
+        question: "¿Qué propiedad CSS se usa para cambiar el alto de un elemento?",
+        answer: "height",
+        options: ["height", "size", "length", "vertical"]
       }
     ],
     DIFICIL: [
       {
         id: 1,
-        question: "¿Propiedad para crear columnas múltiples?",
-        answer: "column-count"
+        question: "¿Qué propiedad CSS se usa para cambiar el color del texto?",
+        answer: "color",
+        options: ["color", "text-color", "font-color", "text-style"]
       },
       {
         id: 2,
-        question: "¿Propiedad para el espacio entre columnas?",
-        answer: "column-gap"
+        question: "¿Qué propiedad CSS se usa para cambiar el tamaño de la fuente?",
+        answer: "font-size",
+        options: ["font-size", "text-size", "size", "font"]
       },
       {
         id: 3,
-        question: "¿Propiedad para crear un grid flexible?",
-        answer: "display: grid"
+        question: "¿Qué propiedad CSS se usa para cambiar el fondo de un elemento?",
+        answer: "background-color",
+        options: ["background-color", "bg-color", "color-background", "background"]
       },
       {
         id: 4,
-        question: "¿Propiedad para el área de un grid?",
-        answer: "grid-area"
+        question: "¿Qué propiedad CSS se usa para cambiar el margen de un elemento?",
+        answer: "margin",
+        options: ["margin", "spacing", "space", "padding"]
       },
       {
         id: 5,
-        question: "¿Propiedad para transformar un elemento?",
-        answer: "transform"
+        question: "¿Qué propiedad CSS se usa para cambiar el padding de un elemento?",
+        answer: "padding",
+        options: ["padding", "inner-margin", "spacing", "margin"]
       },
       {
         id: 6,
-        question: "¿Propiedad para crear una transición?",
-        answer: "transition"
+        question: "¿Qué propiedad CSS se usa para cambiar el borde de un elemento?",
+        answer: "border",
+        options: ["border", "outline", "frame", "edge"]
       },
       {
         id: 7,
-        question: "¿Propiedad para crear una animación personalizada?",
-        answer: "@keyframes"
+        question: "¿Qué propiedad CSS se usa para cambiar la opacidad de un elemento?",
+        answer: "opacity",
+        options: ["opacity", "transparency", "visibility", "alpha"]
       },
       {
         id: 8,
-        question: "¿Propiedad para aplicar un filtro visual?",
-        answer: "filter"
+        question: "¿Qué propiedad CSS se usa para cambiar la familia de fuente?",
+        answer: "font-family",
+        options: ["font-family", "font-type", "text-family", "font"]
       },
       {
         id: 9,
-        question: "¿Propiedad para fijar un elemento al hacer scroll?",
-        answer: "position: sticky"
+        question: "¿Qué propiedad CSS se usa para cambiar el ancho de un elemento?",
+        answer: "width",
+        options: ["width", "size", "length", "horizontal"]
       },
       {
         id: 10,
-        question: "¿Propiedad para alinear elementos en flexbox?",
-        answer: "justify-content"
+        question: "¿Qué propiedad CSS se usa para cambiar el alto de un elemento?",
+        answer: "height",
+        options: ["height", "size", "length", "vertical"]
       }
     ]
   },

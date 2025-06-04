@@ -88,6 +88,7 @@ function RoomSelector3D({
   const canvasRef = useRef();
   const [showWelcome, setShowWelcome] = useState(false);
   const [showRotateOverlay, setShowRotateOverlay] = useState(false);
+  const welcomeShownRef = useRef(false);
 
   // Sincroniza el modo externo
   React.useEffect(() => {
@@ -110,10 +111,15 @@ function RoomSelector3D({
     };
   }, []);
 
-  // Mostrar bocadillo de bienvenida SIEMPRE que se entra en la galería 3D
+  // Mostrar bocadillo de bienvenida SOLO la primera vez que se entra en la galería 3D
   useEffect(() => {
     if (mode === 'gallery') {
-      setShowWelcome(true);
+      const alreadyShown = window.sessionStorage.getItem('welcome3D_shown');
+      if (!alreadyShown && !welcomeShownRef.current) {
+        setShowWelcome(true);
+        welcomeShownRef.current = true;
+        window.sessionStorage.setItem('welcome3D_shown', '1');
+      }
     }
   }, [mode]);
 

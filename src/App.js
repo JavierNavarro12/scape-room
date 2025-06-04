@@ -25,7 +25,7 @@ function App() {
   const [selectedRoom, setSelectedRoom] = useState(null); // 'html', 'css', 'js', 'php'
   const [currentPuzzle, setCurrentPuzzle] = useState(0); // 0-3
   const [completed, setCompleted] = useState(false);
-  const [completedRooms, setCompletedRooms] = useState([]); // array de keys
+  const [completedRooms, setCompletedRooms] = useState([]); // Ahora es un array de objetos: { room: 'html', level: 'BASICO' }
   const [galleryMode, setGalleryMode] = useState(false); // controla si se muestra la galería 3D
   const [showEscapeAnimation, setShowEscapeAnimation] = useState(false); // animación de puerta
   const [hasEscaped, setHasEscaped] = useState(false); // muestra mensaje final
@@ -36,7 +36,7 @@ function App() {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -57,11 +57,13 @@ function App() {
       setCurrentPuzzle(currentPuzzle + 1);
     } else {
       setCompleted(true);
-      // Marca la sala como completada y vuelve a la galería 3D
+      // Marca la sala como completada para el nivel actual y vuelve a la galería 3D
       setCompletedRooms(prev => {
-        const newRooms = prev.includes(selectedRoom) ? prev : [...prev, selectedRoom];
-        // Si se han completado las 4 salas, activar animación de escape
-        if (newRooms.length === 4) {
+        const already = prev.some(r => r.room === selectedRoom && r.level === selectedLevel);
+        const newRooms = already ? prev : [...prev, { room: selectedRoom, level: selectedLevel }];
+        // Si se han completado las 4 salas en este nivel, activar animación de escape
+        const roomsForLevel = newRooms.filter(r => r.level === selectedLevel);
+        if (roomsForLevel.length === 4) {
           setTimeout(() => {
             setSelectedRoom(null);
             setGalleryMode(true);
@@ -101,8 +103,8 @@ function App() {
   // Transición instantánea al seleccionar nivel
   const handleLevelSelect = (level) => {
     setSelectedLevel(level);
-    setShowLevelMenu(false);
     setGalleryMode(true);
+    setShowLevelMenu(false);
   };
 
   // Render puzzles según sala y número
@@ -152,13 +154,15 @@ function App() {
           {galleryMode && !selectedRoom && (
             <RoomSelector3D
               onSelectRoom={handleRoomSelect}
-              completedRooms={completedRooms.map(key => {
-                if (key === 'html') return 'HTML Escape Room';
-                if (key === 'css') return 'CSS Escape Room';
-                if (key === 'js') return 'JavaScript Escape Room';
-                if (key === 'php') return 'PHP Escape Room';
-                return key;
-              })}
+              completedRooms={completedRooms
+                .filter(r => r.level === selectedLevel)
+                .map(r => {
+                  if (r.room === 'html') return 'HTML Escape Room';
+                  if (r.room === 'css') return 'CSS Escape Room';
+                  if (r.room === 'js') return 'JavaScript Escape Room';
+                  if (r.room === 'php') return 'PHP Escape Room';
+                  return r.room;
+                })}
               mode="gallery"
               onExitGallery={handleExitGallery}
               showEscapeAnimation={showEscapeAnimation}
