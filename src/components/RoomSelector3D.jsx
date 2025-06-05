@@ -89,7 +89,6 @@ function RoomSelector3D({
   const [hovered, setHovered] = useState(null);
   const canvasRef = useRef();
   const [showWelcome, setShowWelcome] = useState(false);
-  const welcomeShownRef = useRef(false);
 
   // Sincroniza el modo externo
   React.useEffect(() => {
