@@ -98,15 +98,16 @@ function RoomSelector3D({
 
   // Mostrar bocadillo de bienvenida SOLO la primera vez que se entra en la galería 3D
   useEffect(() => {
-    if (mode === 'gallery') {
+    if (mode === 'gallery' && selectedLevel) {
       const alreadyShown = window.sessionStorage.getItem('welcome3D_shown');
-      if (!alreadyShown && !welcomeShownRef.current) {
+      if (!alreadyShown) {
         setShowWelcome(true);
-        welcomeShownRef.current = true;
         window.sessionStorage.setItem('welcome3D_shown', '1');
+      } else {
+        setShowWelcome(false);
       }
     }
-  }, [mode]);
+  }, [mode, selectedLevel]);
 
   // Lobby: un solo panel grande, centrado y contenido
   function LobbyPanel() {

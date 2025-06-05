@@ -30,17 +30,11 @@ function App() {
   const [galleryMode, setGalleryMode] = useState(false); // controla si se muestra la galería 3D
   const [showConfetti, setShowConfetti] = useState(false);
   const [showEscapeMessage, setShowEscapeMessage] = useState(false);
+  const [showRotateOverlay, setShowRotateOverlay] = useState(false);
+  const [canStartLoading, setCanStartLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [selectedLevel, setSelectedLevel] = useState(null); // 'BASICO', 'NORMAL', 'DIFICIL', 'PRO'
   const [showLevelMenu, setShowLevelMenu] = useState(false);
-  const [showRotateOverlay, setShowRotateOverlay] = useState(false);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Overlay de orientación global
   useEffect(() => {
@@ -48,6 +42,7 @@ function App() {
       const isMobile = window.innerWidth <= 900 && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       const isPortrait = window.innerHeight > window.innerWidth;
       setShowRotateOverlay(isMobile && isPortrait);
+      setCanStartLoading(!isMobile || !isPortrait); // Solo true si no es móvil o ya está en landscape
     }
     checkOrientation();
     window.addEventListener('resize', checkOrientation);
@@ -57,6 +52,17 @@ function App() {
       window.removeEventListener('orientationchange', checkOrientation);
     };
   }, []);
+
+  // Loading solo cuando se puede
+  useEffect(() => {
+    if (canStartLoading) {
+      setLoading(true);
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [canStartLoading]);
 
   const handleRoomSelect = (roomName) => {
     // roomName es el nombre completo, lo mapeamos a la key
