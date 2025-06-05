@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Text } from '@react-three/drei';
 
 const ROOMS = [
@@ -18,68 +18,12 @@ const getLevelLabel = (level) => {
   return level;
 };
 
-function DoorAndCameraEscape({ show, onEnd }) {
-  const doorRef = useRef();
-  const { camera } = useThree();
-  const [phase, setPhase] = useState('door'); // 'door' -> 'camera' -> 'done'
-
-  useEffect(() => {
-    if (show) {
-      setPhase('door');
-    }
-  }, [show]);
-
-  // Animación de la puerta (1.5s)
-  useFrame((_, delta) => {
-    if (!show) return;
-    if (phase === 'door') {
-      if (doorRef.current) {
-        doorRef.current.rotation.y = -Math.PI/2 * 0.5;
-      }
-      if (phase === 'door') {
-        setTimeout(() => {
-          setPhase('camera');
-        }, 300); // pequeña pausa
-      }
-    } else if (phase === 'camera') {
-      camera.position.lerp({x:0, y:2, z:-10}, 0.9);
-      camera.lookAt(0,2,-12);
-      if (onEnd) {
-        setTimeout(onEnd, 800);
-        setPhase('done');
-      }
-    }
-  });
-
-  return (
-    <group>
-      {/* Marco de la puerta */}
-      <mesh position={[0, 1.5, -7.89]}>
-        <boxGeometry args={[2.2, 3.2, 0.18]} />
-        <meshStandardMaterial color="#222" />
-      </mesh>
-      {/* Hoja de la puerta */}
-      <mesh ref={doorRef} position={[0.6, 1.5, -7.8]}>
-        <boxGeometry args={[1, 3, 0.12]} />
-        <meshStandardMaterial color="#8b5c2a" />
-      </mesh>
-      {/* Manilla */}
-      <mesh position={[1.05, 1.5, -7.65]}>
-        <cylinderGeometry args={[0.05, 0.05, 0.18, 16]} />
-        <meshStandardMaterial color="#e2c275" />
-      </mesh>
-    </group>
-  );
-}
-
 function RoomSelector3D({
   onSelectRoom,
   completedRooms = [],
   mode: externalMode,
   onExitGallery,
-  showEscapeAnimation = false,
   hasEscaped = false,
-  onEscapeAnimationEnd = () => {},
   onRestart,
   selectedLevel,
   showConfetti,
@@ -127,8 +71,6 @@ function RoomSelector3D({
           <boxGeometry args={[16, 5, 0.2]} />
           <meshStandardMaterial color="#e0e0e0" />
         </mesh>
-        {/* Puerta animada solo si showEscapeAnimation */}
-        {showEscapeAnimation && <DoorAndCameraEscape show={showEscapeAnimation} onEnd={onEscapeAnimationEnd} />}
         <mesh position={[-8, 2.5, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
           <boxGeometry args={[16, 5, 0.2]} />
           <meshStandardMaterial color="#e0e0e0" />
