@@ -35,9 +35,3 @@
   status = 301
   force = true
 
-# Configuración de compresión
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Encoding = "gzip"
-    Vary = "Accept-Encoding" 
