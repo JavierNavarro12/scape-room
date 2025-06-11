@@ -1,0 +1,43 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests;"
+    
+    # Frame Options
+    X-Frame-Options = "SAMEORIGIN"
+    
+    # Content Type Options
+    X-Content-Type-Options = "nosniff"
+    
+    # Referrer Policy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Permissions Policy
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    
+    # XSS Protection
+    X-XSS-Protection = "1; mode=block"
+    
+    # DNS Prefetch Control
+    X-DNS-Prefetch-Control = "on"
+    
+    # HSTS
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    
+    # Cache Control
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirección HTTPS
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+# Configuración de compresión
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Encoding = "gzip"
+    Vary = "Accept-Encoding" 
